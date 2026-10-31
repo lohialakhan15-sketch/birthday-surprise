@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08050b">
+<title>Her 18th Birthday — A VVIP Surprise ♡</title>
+<style>
+:root{--pink:#ff75b5;--pink2:#ffb4d8;--hot:#d92f82;--ink:#08050b;--panel:#160d18;--muted:#d4afc2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:#fff1f8;background:radial-gradient(ellipse at 50% 15%,#381329 0,#160b18 42%,#070509 85%);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:radial-gradient(#ff9acb 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(#000,transparent 90%)}
+button{font:inherit}
+.wrap{width:min(900px,92%);margin:auto;padding:22px 0 70px;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#f7a4cb;font:10px system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.pill{border:1px solid #8e3d69;background:#1a0c19;color:#ffd7e9;border-radius:99px;padding:10px 14px;font:10px system-ui,sans-serif;letter-spacing:.1em;cursor:pointer}
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 0 55px}
+.eyebrow{font:10px system-ui,sans-serif;letter-spacing:.35em;text-transform:uppercase;color:var(--pink)}
+h1{font-size:clamp(3rem,10vw,6.5rem);font-weight:400;line-height:.94;margin:18px 0 10px;color:#ffacd2;text-shadow:0 0 28px #e23b8c55}
+h1 em{font-style:normal;color:#fff0f7}
+.subtitle{font:14px/1.8 system-ui,sans-serif;color:#d9b7c9;max-width:520px;margin:12px auto 26px}
+.stage{position:relative;width:min(380px,92vw);height:330px;display:grid;place-items:center;margin:0 auto 8px}
+.halo{position:absolute;width:270px;height:270px;border-radius:50%;background:#e83d9650;filter:blur(55px)}
+.cake{position:relative;width:270px;height:230px;filter:drop-shadow(0 20px 22px #000b);z-index:1}
+.plate{position:absolute;bottom:8px;left:4px;width:262px;height:22px;border-radius:50%;background:linear-gradient(#ffe0f0,#bd4c84 55%,#351126);box-shadow:0 9px 18px #0009}
+.base{position:absolute;left:28px;bottom:26px;width:214px;height:93px;border-radius:16px 16px 23px 23px;background:linear-gradient(90deg,#170b18,#37152f 42%,#120912);border:2px solid #a63c76;box-shadow:inset 0 -12px 0 #0b070d}
+.base:before{content:"";position:absolute;top:-8px;left:0;right:0;height:19px;background:radial-gradient(ellipse at 12px 8px,#ffb8d8 0 10px,transparent 11px) 0 0/25px 18px repeat-x}
+.topcake{position:absolute;left:58px;bottom:111px;width:154px;height:54px;border-radius:13px 13px 8px 8px;background:linear-gradient(90deg,#351329,#74264f,#2b1025);border:2px solid #a63c76}
+.topcake:before{content:"";position:absolute;top:-8px;left:0;right:0;height:18px;background:radial-gradient(ellipse at 10px 8px,#ffe0ee 0 8px,transparent 9px) 0 0/20px 18px repeat-x}
+.candle{position:absolute;bottom:163px;width:9px;height:43px;border-radius:4px;background:repeating-linear-gradient(135deg,#ffe4f1 0 6px,#f36eaa 6px 11px);z-index:3;transform-origin:bottom}
+.c1{left:89px}.c2{left:130px;bottom:172px;height:49px}.c3{left:171px}.c4{left:212px;bottom:172px;height:49px}
+.flame{position:absolute;bottom:205px;width:14px;height:22px;border-radius:70% 30% 65% 35%;background:radial-gradient(ellipse at 50% 70%,#fff 0 15%,#ffe49a 35%,#ff8d37 75%);filter:drop-shadow(0 0 10px #ff9b48);animation:flicker .7s infinite alternate;z-index:4;transform-origin:bottom}
+.f1{left:87px}.f2{left:128px;bottom:221px}.f3{left:169px}.f4{left:210px;bottom:221px}
+.cake-word{position:absolute;bottom:54px;left:0;right:0;text-align:center;color:#ffc1df;font:10px system-ui,sans-serif;letter-spacing:.15em;z-index:5}
+.smoke{display:none;position:absolute;bottom:205px;width:20px;height:43px;border-radius:50%;border-left:3px solid #d8c9d5;filter:blur(2px);opacity:.75;animation:smoke 2.4s ease-out infinite;z-index:6}
+.s1{left:83px}.s2{left:124px;bottom:221px}.s3{left:165px}.s4{left:206px;bottom:221px}
+.blown .flame{display:none}.blown .smoke{display:block}
+.blown .candle{animation:out .35s ease forwards}
+.prompt{font:11px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#f3a7ca;margin:5px 0 15px}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.primary,.secondary{border-radius:99px;padding:13px 20px;cursor:pointer;font:600 11px system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.primary{border:1px solid #ff9dca;background:linear-gradient(135deg,#ffacd2,#d83b8b);color:#240b1b;box-shadow:0 8px 25px #e43c9344}
+.secondary{border:1px solid #a84c7b;background:#160b18;color:#ffd8e9}
+.status{min-height:22px;margin-top:12px;color:#d7a9c2;font:12px/1.6 system-ui,sans-serif}
+.panel{display:none;padding:clamp(22px,5vw,45px);border:1px solid #a34376;border-radius:24px;background:linear-gradient(145deg,#1d1020,#0b080e);box-shadow:0 25px 80px #000a;position:relative}
+.panel.show{display:block;animation:rise .8s ease both}
+.panel:before{content:"";position:absolute;inset:8px;border:1px solid #ff9fc52b;border-radius:17px;pointer-events:none}
+.panel h2{text-align:center;color:#ffacd2;font-size:clamp(2rem,6vw,3.2rem);font-weight:400;margin:5px 0 8px}
+.kicker{text-align:center;color:#e88db8;font:10px system-ui,sans-serif;letter-spacing:.28em;text-transform:uppercase;margin-bottom:28px}
+.message{position:relative;color:#f1dce7;font:14px/1.95 system-ui,sans-serif}
+.message p{margin:0 0 17px}
+.signature{text-align:center;color:#ffacd2;font-size:20px;margin:28px 0}
+.gift-area{text-align:center;border-top:1px solid #69304e;margin-top:30px;padding-top:25px}
+.gift-area p{color:#d6b2c5;font:12px/1.7 system-ui,sans-serif}
+.gift{font-size:65px;background:transparent;border:0;cursor:pointer;filter:drop-shadow(0 8px 15px #e83e9644);transition:.2s}
+.gift:hover{transform:scale(1.12) rotate(-7deg)}
+.gift-note{display:none;max-width:430px;margin:12px auto 0;padding:18px;border:1px solid #a64d7a;border-radius:14px;background:#220f20;color:#ffe0ef;font:13px/1.8 system-ui,sans-serif}
+.gift-note.show{display:block;animation:rise .5s ease}
+.footer{text-align:center;margin-top:30px;color:#a67a91;font:10px system-ui,sans-serif;letter-spacing:.15em}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}
+.particle{position:absolute;top:-20px;color:#ff9bc9;animation:fall 4s linear forwards;text-shadow:0 0 10px #ff5eae}
+@keyframes flicker{to{transform:scale(.85) rotate(7deg);opacity:.85}}
+@keyframes smoke{0%{transform:translate(0,0) scale(.6);opacity:.1}50%{opacity:.65}100%{transform:translate(13px,-55px) scale(1.5);opacity:0}}
+@keyframes out{to{opacity:.55;transform:scaleY(.7)}}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(450deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="fx"></div>
+<main class="wrap">
+ <div class="top"><span>✦ A VVIP BIRTHDAY EXPERIENCE</span><button class="pill" id="musicBtn">♫ PLAY MUSIC</button></div>
+ <section class="hero" id="hero">
+  <div class="eyebrow">A special celebration for a special person</div>
+  <h1>Happy <em>18th</em><br>Birthday ♡</h1>
+  <p class="subtitle">A little black-and-pink world made just for your special day.<br>Make a wish… ✨</p>
+  <div class="stage" id="cakeStage" role="button" tabindex="0" aria-label="Birthday cake">
+   <div class="halo"></div>
+   <div class="cake" id="cake">
+    <div class="flame f1"></div><div class="flame f2"></div><div class="flame f3"></div><div class="flame f4"></div>
+    <div class="smoke s1"></div><div class="smoke s2"></div><div class="smoke s3"></div><div class="smoke s4"></div>
+    <div class="candle c1"></div><div class="candle c2"></div><div class="candle c3"></div><div class="candle c4"></div>
+    <div class="topcake"></div><div class="base"></div><div class="plate"></div>
+    <div class="cake-word">EIGHTEEN & EXTRAORDINARY</div>
+   </div>
+  </div>
+  <div class="prompt" id="prompt">Blow into your phone microphone to make a wish</div>
+  <div class="actions">
+   <button class="primary" id="micBtn">♧ Enable mic & blow</button>
+   <button class="secondary" id="tapBtn">Tap to blow candles</button>
+  </div>
+  <div class="status" id="status" aria-live="polite">Microphone access is optional. You can use the tap button instead.</div>
+  <button class="primary" id="continueBtn" style="display:none;margin-top:12px">Open your birthday note ♡</button>
+ </section>
+ <section class="panel" id="letter" aria-live="polite">
+  <h2>Happiest Birthdayyyy! 🎂</h2><div class="kicker">A little note, especially for you</div>
+  <div class="message">
+<p>Happiest Birthdayyyy! 🎂❤️</p>
+<p>Sooo, finally tera special day aa hi gaya! 🥳</p>
+<p>Aur ye tumhe meri taraf se pehli wish hai, so I hope thodi special hogi. 😂❤️</p>
+<p>Honestly, samajh nahi aa raha kahan se start karun, kyunki bolne ko toh bahut kuch hai. But don't worry, aaj koi boring lecture nahi dene wala. 😭😂</p>
+<p>I genuinely hope ki tera aaj ka din bahut special ho, full of happiness, laughter, surprises aur beautiful memories.</p>
+<p>Tu kabhi bahut funny hoti hai, kabhi itni confusing ki samajh hi nahi aata ki serious hai ya mazaak kar rahi hai. Kabhi itni sweet aur kabhi... rehne de, birthday hai tera, aaj complaints nahi karunga. 😭😂</p>
+<p>Honestly, tere saath hui chhoti-chhoti conversations, random jokes aur woh funny moments yaad rahenge. Kabhi hasi aati hai, kabhi samajh nahi aata ki tune aisa bola hi kyun. 😂</p>
+<p>And one more thing… I love you! ❤️ I genuinely care about you, and your happiness matters to me. Bas chahta hoon ki tere chehre par hamesha aisi hi smile rahe.</p>
+<p>I hope aaj tujhe woh saari happiness mile jo tu deserve karti hai. Enjoy every little moment, eat lots of cake, take loads of pictures and make some amazing memories!</p>
+<p>Aur haan, birthday girl hone ka matlab ye nahi ki ab attitude double ho jayega. Already kaafi hai! 😭😂</p>
+<p>Once again, Happiest Birthdayyyy! ❤️🎂</p>
+<p>Hamesha khush rehna, apna khayal rakhna aur enjoy your special day to the fullest!</p>
+<p>Have the best dayyyy! 🥳❤️</p>
+  </div>
+  <div class="signature">Made with care, just for your day ♡</div>
+  <div class="gift-area"><div class="eyebrow">A tiny VVIP gift</div><p>There's one more little surprise waiting.<br>Tap the gift to unwrap it.</p>
+   <button class="gift" id="giftBtn" aria-label="Open little gift">🎁</button>
+   <div class="gift-note" id="giftNote">🎀 Your little virtual gift: unlimited cake, laughter, and a whole lot of birthday happiness. No expiry date. ✨</div>
+  </div>
+ </section>
+ <div class="footer">BLACK × PINK · MADE WITH GOOD WISHES</div>
+</main>
+<audio id="music" loop preload="none"><source src="birthday-song.mp3" type="audio/mpeg"></audio>
+<script>
+const $=id=>document.getElementById(id);
+const music=$('music'),musicBtn=$('musicBtn');
+musicBtn.addEventListener('click',async()=>{if(music.paused){try{await music.play();musicBtn.textContent='♫ PAUSE MUSIC'}catch(e){musicBtn.textContent='ADD MP3 TO FOLDER'}}else{music.pause();musicBtn.textContent='♫ PLAY MUSIC'}});
+let blown=false,stream=null,audioCtx=null,source=null,analyser=null,micActive=false,raf=0;
+function effects(){const fx=$('fx');for(let i=0;i<85;i++){const p=document.createElement('span');p.className='particle';p.textContent=['✦','♡','✧','·'][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*16)+'px';p.style.animationDelay=(Math.random()*.8)+'s';fx.appendChild(p);setTimeout(()=>p.remove(),4800)}}
+function extinguish(){if(blown)return;blown=true;$('cake').classList.add('blown');$('prompt').textContent='Wish made. Candles blown out! ♡';$('status').textContent='A little birthday magic, just for you. ✨';$('continueBtn').style.display='inline-block';effects();stopMic();}
+function stopMic(){if(raf)cancelAnimationFrame(raf);raf=0;if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}micActive=false;if(audioCtx){audioCtx.close();audioCtx=null}}
+$('tapBtn').addEventListener('click',extinguish);
+$('cakeStage').addEventListener('click',()=>{if(!blown)$('status').textContent='Ready when you are — use the microphone or tap the button below.'});
+$('cakeStage').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('status').textContent='Use the blow button or tap-to-blow button.'}});
+$('micBtn').addEventListener('click',async()=>{
+ if(blown)return;
+ if(!navigator.mediaDevices?.getUserMedia){$('status').textContent='Mic is not available in this browser. Use “Tap to blow candles”.';return}
+ try{
+  stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:false}});
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();await audioCtx.resume();
+  source=audioCtx.createMediaStreamSource(stream);analyser=audioCtx.createAnalyser();analyser.fftSize=1024;source.connect(analyser);
+  const data=new Uint8Array(analyser.fftSize);let baseline=0,started=performance.now();
+  micActive=true;$('status').textContent='Mic is on. Blow steadily towards your phone microphone now! 💨';
+  function listen(){if(!micActive||blown)return;analyser.getByteTimeDomainData(data);let sum=0;for(let i=0;i<data.length;i++){const x=(data[i]-128)/128;sum+=x*x}const rms=Math.sqrt(sum/data.length);
+   if(performance.now()-started<900)baseline=Math.max(baseline,rms);
+   else if(rms>Math.max(.075,baseline*2.6)){extinguish();return}
+   raf=requestAnimationFrame(listen)}
+  listen();
+ }catch(err){$('status').textContent='Mic permission was not granted. You can still tap “Tap to blow candles”.';stopMic()}
+});
+$('continueBtn').addEventListener('click',()=>{$('letter').classList.add('show');$('letter').scrollIntoView({behavior:'smooth',block:'start'})});
+$('giftBtn').addEventListener('click',()=>{$('giftNote').classList.toggle('show');effects()});
+window.addEventListener('pagehide',stopMic);
+</script>
+</body>
+</html>
