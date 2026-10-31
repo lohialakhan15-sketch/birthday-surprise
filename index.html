@@ -121,8 +121,49 @@ h1 em{font-style:normal;color:#fff0f7}
 </main>
 <audio id="music" loop preload="none"><source src="birthday-song.mp3" type="audio/mpeg"></audio>
 <script>
-const $=id=>document.getElementById(id);
-const music=$('music'),musicBtn=$('musicBtn');
+const $=id=>document.getElementById(id);const SUPABASE_URL = "PASTE_YOUR_PROJECT_URL_HERE";
+const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+ function getBirthdayToken(){
+  return new URLSearchParams(location.hash.slice(1)).get('token')
+    || new URLSearchParams(location.search).get('token');
+}
+
+async function birthdayRPC(functionName, token){
+  const response = await fetch(
+    `${SUPABASE_URL}/rest/v1/rpc/${functionName}`,
+    {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_KEY,
+       Authorization: `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({p_token: token})
+    }
+  );
+
+  if (!response.ok) throw new Error('Birthday link check failed');
+  return await response.json();
+}
+ (async function checkBirthdayAccess(){
+  document.body.style.display = 'none';
+
+  const token = getBirthdayToken();
+
+  try {
+    if (!token || !(await birthdayRPC('check_birthday_link', token))) {
+      document.body.innerHTML = '<h2 style="text-align:center;margin-top:20vh;color:#e75480">This birthday surprise link has expired or is invalid. 💗</h2>';
+      document.body.style.display = 'block';
+      return;
+    }
+
+    document.body.style.display = 'block';
+  } catch (error) {
+    document.body.innerHTML = '<h2 style="text-align:center;margin-top:20vh;color:#e75480">Unable to verify this link. Please try again later. 💗</h2>';
+    document.body.style.display = 'block';
+  }
+})();
+ const music=$('music'),musicBtn=$('musicBtn');
 musicBtn.addEventListener('click',async()=>{if(music.paused){try{await music.play();musicBtn.textContent='♫ PAUSE MUSIC'}catch(e){musicBtn.textContent='ADD MP3 TO FOLDER'}}else{music.pause();musicBtn.textContent='♫ PLAY MUSIC'}});
 let blown=false,stream=null,audioCtx=null,source=null,analyser=null,micActive=false,raf=0;
 function effects(){const fx=$('fx');for(let i=0;i<85;i++){const p=document.createElement('span');p.className='particle';p.textContent=['✦','♡','✧','·'][Math.floor(Math.random()*4)];p.style.left=Math.random()*100+'vw';p.style.fontSize=(10+Math.random()*16)+'px';p.style.animationDelay=(Math.random()*.8)+'s';fx.appendChild(p);setTimeout(()=>p.remove(),4800)}}
@@ -148,7 +189,30 @@ $('micBtn').addEventListener('click',async()=>{
  }catch(err){$('status').textContent='Mic permission was not granted. You can still tap “Tap to blow candles”.';stopMic()}
 });
 $('continueBtn').addEventListener('click',()=>{$('letter').classList.add('show');$('letter').scrollIntoView({behavior:'smooth',block:'start'})});
-$('giftBtn').addEventListener('click',()=>{$('giftNote').classList.toggle('show');effects()});
+let giftOpening = false;
+
+$('giftBtn').addEventListener('click', async () => {
+  if (giftOpening) return;
+  giftOpening = true;
+  $('giftBtn').disabled = true;
+
+  try {
+    const token = getBirthdayToken();
+    const used = await birthdayRPC('consume_birthday_link', token);
+
+    if (used !== true) {
+      $('giftNote').textContent = 'This birthday surprise link has already been used. 💗';
+      $('giftNote').classList.add('show');
+      return;
+    }
+
+    $('giftNote').classList.add('show');
+    effects();
+  } catch (error) {
+    $('giftNote').textContent = 'Could not open the gift right now. Please try again.';
+    $('giftNote').classList.add('show');
+  }
+});
 window.addEventListener('pagehide',stopMic);
 </script>
 </body>
